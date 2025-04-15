@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona 2011-2012 - Ultimate Tribute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            --barca-blue: #004D98;
+            --barca-red: #A50044;
+            --barca-gold: #EDBB00;
+            --dark-bg: #0a0a0a;
+            --text-light: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #0098 0%, #00294B 100%);
+            --gradient-accent: linear-gradient(45deg, #A50044 0%, #6A002F 100%);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --header-height: 80px;
+        }
+
+        /* ========== Base Reset & Global Styles ========== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========== Utility Classes ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;    
+        }
+
+        .section-py {
+            padding: 8rem 0;
+        }
+
+        .text-gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ========== Header & Navigation ========== */
+        :root {
+            --header-height: 80px;
+            --text-light: #ffffff;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background-image: url('images (4).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--header-height);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text-light);
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            border-radius: 10px;
+        }
+
+        /* Overlay to make text more readable */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(0, 77, 152, 0.6),  /* Barcelona blue overlay */
+                rgba(165, 0, 68, 0.6)   /* Barcelona red overlay */
+            );
+            z-index: 0;
+        }
+
+        .hero-content * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Add this if you want a blur effect */
+        .hero-content.blur-effect {
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        .header {
+            background-image: url('images (4).jpeg');
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--barca-blue);
+            height: var(--header-height);
+            z-index: 1000;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            width: 70px;
+            transition: var(--transition);
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--barca-red);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-primary);
+            margin-top: var(--header-height);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(165,0,68,0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff 30%, var(--barca-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* ========== Squad Section ========== */
+        .squad-section {
+            position: relative;
+            background: url('texture.png'), var(--dark-bg);
+        }
+
+        .position-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-accent);
+        }
+
+        .squad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .player-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--glass-border);
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .player-image {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 3px solid var(--barca-red);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .player-info {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .player-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gradient-accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .player-position {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .player-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 77, 152, 0.1);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            background: rgba(165, 0, 68, 0.1);
+        }
+
+        /* ========== Timeline Section ========== */
+        .timeline-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--barca-red);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background: var(--barca-blue);
+            border: 4px solid var(--barca-red);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        /* ========== Trophy Section ========== */
+        .trophy-section {
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .trophy-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
+        }
+
+        .trophy-card:hover {
+            transform: translateY(-5px);
+            background: rgba(237, 187, 0, 0.1);
+        }
+
+        .trophy-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ========== Gallery Section ========== */
+        .gallery-section {
+            position: relative;
+            background: var(--dark-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            transform: scale(0.98);
+            transition: var(--transition);
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1);
+            box-shadow: 0 8px 32px rgba(165, 0, 68, 0.2);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(0, 77, 152, 0.3), rgba(165, 0, 68, 0.3));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            background: var(--barca-blue);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+            position: relative;
+            margin-top: 5rem;
+        }
+    
+        .footer-container {
+            position: relative;
+            z-index: 1;
+        }
+    
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+    
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    
+        .footer-logo {
+            width: 120px;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+    
+        .footer-motto {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+    
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+    
+        .social-link {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+    
+        .social-link:hover {
+            color: var(--barca-red);
+            transform: translateY(-3px);
+        }
+    
+        .footer-heading {
+            color: var(--barca-gold);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+    
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--barca-red);
+        }
+    
+        .footer-links {
+            list-style: none;
+        }
+    
+        .footer-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: var(--transition);
+        }
+    
+        .footer-link:hover {
+            color: var(--barca-red);
+            padding-left: 0.5rem;
+        }
+    
+        .contact-info p {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+    
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+    
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+    
+        .newsletter-button {
+            background: var(--barca-red);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+    
+        .newsletter-button:hover {
+            background: var(--barca-gold);
+            color: var(--text-dark);
+        }
+    
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+    
+        .legal-links {
+            margin-bottom: 1rem;
+        }
+    
+        .legal-link {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+    
+        .legal-link:hover {
+            color: var(--barca-red);
+        }
+    
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--barca-red);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+    
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+    
+            .legal-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+    
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* ========== Animations ========== */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ========== Media Queries ========== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .timeline-container::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .player-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container container">
+            <img src="barcelona.png" alt="FC Barcelona" class="logo">
+            <div class="nav-links">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#squad" class="nav-link">Squad</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#trophies" class="nav-link">Trophies</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#footer" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">FC Barcelona 2011-2012</h1>
+                <p class="hero-subtitle">The Greatest Team in Modern Football History</p>
+                <div class="countdown" id="countdown"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Squad Section -->
+    <section id="squad" class="section-py squad-section">
+        <div class="container">
+            <h2 class="section-title text-gradient">Lionel Messi</h2>
+            <div class="position-filter">
+                <!-- Filter buttons remain same -->
+            </div>
+            <div class="squad-grid">
+                <!-- 25+ Player Cards -->
+                <div class="player-card">
+                    <div class="player-number">10</div>
+                    <img src="messi-1805.jpg" alt="Lionel Messi" class="player-image">
+                    <div class="player-info">
+                        <h3>Lionel Messi</h3>
+                        <span class="player-position">Forward</span>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>833</span>
+                                <small>Goals</small>
+                            </div>
+                            <div class="stat-item">
+                                <span>3</span>
+                                <small>Assists</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat player cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section-py timeline-section">
+        <div class="container">
+            <h2 class="section-title">Historic Timeline</h2>
+            <div class="timeline-container">
+                <!-- 15+ Timeline Items -->
+                <div class="timeline-item left">
+                    <h3>FC Barcelona (2004–2021)</h3>
+                    <p> FC Barcelona (2004–2021) </p>
+                    <div class="timeline-item left">
+                        <h3>FC Barcelona (2004–2021)</h3>
+                        <p>Barcelona's all-time top scorer (672 goals)
+<br>
+                            Most goals in a calendar year (91 in 2012)
+<br>
+                            Most Ballon d'Or wins while at Barça (6)</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <h3>August 2011</h3>
+                    <p>Spanish Super Cup Champions</p>
+                    <div class="timeline-item left">
+                        <h3>August 2011</h3>
+                        <p>Spanish Super Cup Champions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trophy Section -->
+    <section id="trophies" class="section-py trophy-section">
+        <div class="container">
+            <h2 class="section-title">Season Honors</h2>
+            <div class="trophy-grid">
+                <img src="lionel-messi-with-the-trophy-fc-barcelona-v-manchester-utd-wembley-JB9AHY.jpg" alt="">
+                <img src="images (1).jpeg" alt="">
+                <img src="5f2f143c970969d2da37682f501cbaa0.jpg" alt="">
+                <img src="BarcelonamustfocusonLaLiga2CnotmeaninglessSupercopa.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-py gallery-section">
+        <div class="container">
+            <h2 class="section-title">Iconic Moments</h2>
+            <div class="gallery-grid">
+                <!-- 20+ Gallery Items -->
+                 <img src="images (2).jpeg" alt="">
+                 <img src="images (3).jpeg" alt="">
+                 <img src="imago1014544879h.webp" alt="">
+                 <img src="images (2).jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-grid">
+                <!-- Club Information -->
+                <div class="footer-section">
+                    <img src="barcelona.png" alt="FC Barcelona Logo" class="footer-logo">
+                    <p class="footer-motto">Més que un club<br>(More than a club)</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#squad" class="footer-link">First Team</a></li>
+                        <li><a href="#timeline" class="footer-link">History</a></li>
+                        <li><a href="#trophies" class="footer-link">Trophies</a></li>
+                        <li><a href="#gallery" class="footer-link">Gallery</a></li>
+                        <li><a href="#" class="footer-link">Tickets</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Information -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Camp Nou, Barcelona, Spain</p>
+                        <p><i class="fas fa-phone"></i> +34 902 1899 00</p>
+                        <p><i class="fas fa-envelope"></i> info@fcbarcelona.cat</p>
+                    </div>
+                </div>
+    
+                <!-- Newsletter -->
+                <div class="footer-section">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+    
+            <!-- Copyright Section -->
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                    <a href="#" class="legal-link">Cookie Policy</a>
+                </div>
+                <p class="copyright">&copy; 1899-2023 FC Barcelona. All rights reserved.</p>
+            </div>
+        </div>
+    
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Header Scroll Effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 77, 152, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--barca-blue)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Player Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const players = document.querySelectorAll('.player-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                players.forEach(player => {
+                    const position = player.dataset.position;
+                    if (filter === 'all' || position === filter) {
+                        player.style.display = 'block';
+                    } else {
+                        player.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Gallery
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        document.body.appendChild(lightbox);
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightbox.innerHTML = `<img src="${imgSrc}" alt="Enlarged view">`;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        // Countdown Timer
+        const countDate = new Date('2023-12-23').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = countDate - now;
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+
+            document.getElementById('countdown').innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
